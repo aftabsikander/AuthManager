@@ -1,7 +1,7 @@
 package com.github.charbgr.authmanager
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.github.charbgr.authmanager.views.GoogleView
 import com.github.charbgr.authmanager.views.HintView
 import com.github.charbgr.authmanager.views.SmartLockView

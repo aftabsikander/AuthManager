@@ -2,7 +2,7 @@ package com.github.charbgr.authmanager
 
 import android.content.Intent
 import android.content.IntentSender
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.github.charbgr.authmanager.models.SuccessPayload
 import com.github.charbgr.authmanager.views.SmartLockView
 import com.google.android.gms.auth.api.Auth

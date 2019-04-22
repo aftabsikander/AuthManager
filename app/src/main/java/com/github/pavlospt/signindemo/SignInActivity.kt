@@ -2,12 +2,12 @@ package com.github.pavlospt.signindemo
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.TextInputLayout
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.github.charbgr.authmanager.AuthManager
 import com.github.charbgr.authmanager.models.SuccessPayload
 import com.github.charbgr.authmanager.views.GoogleView
@@ -23,6 +23,7 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.Status
+import com.google.android.material.textfield.TextInputLayout
 
 
 class SignInActivity : AppCompatActivity(),
@@ -298,14 +299,14 @@ class SignInActivity : AppCompatActivity(),
             .Builder(this)
             .setTitle(R.string.credential_received)
             .setMessage(getString(R.string.what_do_you_want_to_do_with_credential, credential?.id))
-            .setPositiveButton(getString(R.string.use_credential), { dialogInterface, i ->
+            .setPositiveButton(getString(R.string.use_credential)) { _, _ ->
                 MainActivity.startActivity(this@SignInActivity, credential?.id)
-            })
-            .setNegativeButton(getString(R.string.delete_credential), { dialogInterface, i ->
-                authManager?.deleteCredential(credential)
-                dialogInterface.dismiss()
-                dialogInterface.cancel()
-            })
+            }
+                .setNegativeButton(getString(R.string.delete_credential)) { dialogInterface, _ ->
+                    authManager?.deleteCredential(credential)
+                    dialogInterface.dismiss()
+                    dialogInterface.cancel()
+                }
 
         val alertDialog: AlertDialog = alertDialogBuilder.create()
         alertDialog.show()
